@@ -1,0 +1,11 @@
+{
+  "home": {
+    "getStarted": "Bắt đầu bằng cách chỉnh sửa",
+    "saveAndSee": "Lưu và xem thay đổi ngay lập tức.",
+    "deployNow": "Triển khai ngay",
+    "readDocs": "Đọc tài liệu",
+    "learn": "Học",
+    "examples": "Ví dụ",
+    "goToNextjs": "Đi đến nextjs.org →"
+  }
+}

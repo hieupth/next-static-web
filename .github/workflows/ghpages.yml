@@ -1,0 +1,40 @@
+name: GitHub Pages deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - 
+        name: Checkout 🛎️
+        uses: actions/checkout@v4
+      - 
+        name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install
+        run: npm ci
+
+      - name: Set BASE_PATH
+        run: echo "BASE_PATH=/$(echo $GITHUB_REPOSITORY | cut -d '/' -f 2)" >> $GITHUB_ENV
+
+      - name: Build (static export)
+        env:
+          BASE_PATH: ${{ env.BASE_PATH }}
+          NEXT_PUBLIC_BASE_PATH: ${{ env.BASE_PATH }}
+        run: npm run build && touch ./out/.nojekyll
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          branch: gh-pages
+          folder: out

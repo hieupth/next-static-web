@@ -1,0 +1,11 @@
+{
+  "home": {
+    "getStarted": "編集して開始",
+    "saveAndSee": "保存して変更をすぐに確認。",
+    "deployNow": "今すぐデプロイ",
+    "readDocs": "ドキュメントを読む",
+    "learn": "学ぶ",
+    "examples": "例",
+    "goToNextjs": "nextjs.org へ →"
+  }
+}
